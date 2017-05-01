@@ -1,0 +1,54 @@
+{
+  "common" : [
+    {
+      "Identifier" : 3,
+      "Name" : "Steel",
+      "Description" : "This looks hard",
+      "Rarity" : "Common",
+      "MaxQty" : 10
+    },
+    {
+      "Identifier" : 6,
+      "Name" : "Magic Crystal",
+      "Description" : "Ooooooo so shiny, this seems to have magic properties",
+      "Rarity" : "Common",
+      "MaxQty" : 2
+    }
+  ],
+  "rare" : [
+    {
+      "Identifier":2,
+      "Name": "Leather legs",
+      "Description": "Basic leather leggings",
+      "Rarity": "rare",
+      "MaxQty" : 1
+    }
+  ],
+  "super" : [
+    {
+      "Identifier": 4,
+      "Name": "Magic Mithril leggings of power",
+      "Description": "These leggings have been known to provide a kick.",
+      "Rarity": "super",
+      "MaxQty" : 1
+    }
+  ],
+  "ultra" : [
+    {
+      "Identifier": 5,
+      "Name": "Chest plate of the Forgotten devourer",
+      "Description": "These leggings belonged to the grand devourer known as Widdy",
+      "Rarity": "ultra",
+      "MaxQty" : 1
+    }
+  ],
+  "ancient" : [
+    {
+      "Identifier": 1,
+      "Name": "Leggings of the Lost Defender",
+      "Description": "These leggings belonged to owolg the lost one during the battle of the devourers",
+      "Rarity": "ancient",
+      "MaxQty" : 1
+    }
+  ]
+}
