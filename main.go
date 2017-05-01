@@ -1,35 +1,35 @@
 package main
 
-import(
+import (
 	"crypto/rand"
-	"math/big"
 	"encoding/json"
-	"io/ioutil"
 	"fmt"
-	"os"
+	"io/ioutil"
+	"math/big"
 	"net/http"
+	"os"
 )
 
 var ItemMap = make(map[string][]Item)
 
 const (
-	COMMON = "common"
-	RARE = "rare"
+	COMMON     = "common"
+	RARE       = "rare"
 	SUPER_RARE = "super"
 	ULTRA_RARE = "ultra"
-	ANCIENT = "ancient"
+	ANCIENT    = "ancient"
 )
 
 type Item struct {
-	Identifier int64 `json:"identifier"`
-	Name string `json:"name"`
+	Identifier  int64  `json:"identifier"`
+	Name        string `json:"name"`
 	Description string `json:"description"`
-	Rarity string `json:"rarity"`
-	MaxQty int `json:"maxQty"`
+	Rarity      string `json:"rarity"`
+	MaxQty      int    `json:"maxQty"`
 }
 
 type ItemGroup struct {
-	Item Item `json:"item"`
+	Item     Item  `json:"item"`
 	Quantity int64 `json:"quantity"`
 }
 
@@ -51,6 +51,14 @@ func getRandomNumber(max int64) int64 {
 	return number.Int64()
 }
 
+func getenv(key, fallback string) string {
+	value := os.Getenv(key)
+	if len(value) == 0 {
+		return fallback
+	}
+	return value
+}
+
 func getRareItem(rarity string) Item {
 	items := ItemMap[rarity]
 	return items[getRandomNumber(int64(len(items)))]
@@ -69,7 +77,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func main(){
+func main() {
 	file, e := ioutil.ReadFile("./items.json")
 
 	if e != nil {
@@ -80,7 +88,7 @@ func main(){
 	json.Unmarshal(file, &ItemMap)
 
 	http.HandleFunc("/chest_items", handler)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(fmt.Sprintf(":%s", getenv("PORT", "8080")), nil)
 }
 
 func rollForCommonItems() []ItemGroup {
