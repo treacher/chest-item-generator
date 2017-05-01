@@ -1,0 +1,1 @@
+web: chest-item-generator
