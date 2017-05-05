@@ -1,9 +1,9 @@
 package handlers
 
 import (
+	"chest-item-generator/logic"
 	"encoding/json"
 	"net/http"
-	"personal/chest-item-generator/logic"
 )
 
 type GetChestItems struct {
@@ -17,6 +17,7 @@ func NewGetChestItems(itemRoller *logic.ItemRoller) *GetChestItems {
 }
 
 func (gci *GetChestItems) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+
 	chestItems := gci.itemRoller.GetChestItems()
 
 	w.Header().Set("Content-Type", "application/json")

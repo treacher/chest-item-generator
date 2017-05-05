@@ -1,9 +1,9 @@
 package logic
 
 import (
+	"chest-item-generator/model"
 	"crypto/rand"
 	"math/big"
-	"personal/chest-item-generator/model"
 )
 
 const (

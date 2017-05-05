@@ -11,8 +11,8 @@ import (
 	"syscall"
 	"time"
 
-	"personal/chest-item-generator/model"
-	"personal/chest-item-generator/service"
+	"chest-item-generator/model"
+	"chest-item-generator/service"
 )
 
 func getenv(key, fallback string) string {

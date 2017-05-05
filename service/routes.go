@@ -1,9 +1,9 @@
 package service
 
 import (
+	"chest-item-generator/handlers"
+	"chest-item-generator/logic"
 	"net/http"
-	"personal/chest-item-generator/handlers"
-	"personal/chest-item-generator/logic"
 
 	"github.com/pressly/chi"
 )
